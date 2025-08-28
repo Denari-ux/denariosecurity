@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrar Admin</title>
+  <style>
+    body {
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #eee;
+    }
+
+    .form-box {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input {
+      display: block;
+      margin-bottom: 15px;
+      padding: 10px;
+      width: 100%;
+    }
+
+    button {
+      padding: 10px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>Criar Admin</h2>
+    <input type="text" id="adminUser" placeholder="Usuario">
+    <input type="password" id="adminPass" placeholder="Senha">
+    <button onclick="registrar()">Registrar</button>
+  </div>
+
+  <script>
+    function registrar() {
+      const user = document.getElementById('adminUser').value;
+      const pass = document.getElementById('adminPass').value;
+
+      if (!user || !pass) {
+        alert("Preencha todos os campos.");
+        return;
+      }
+
+      const data = {
+        usuario: user,
+        senha: btoa(pass) // codifica a senha em base64 (simples)
+      };
+
+      localStorage.setItem("admin", JSON.stringify(data));
+      alert("Admin registrado com sucesso!");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+<script>
+  function logout() {
+    localStorage.removeItem('usuarioLogado');
+    window.location.href = "login.html";
+  }
+</script>
+</html>

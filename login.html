@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: #f2f2f2;
+    }
+
+    .login-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input {
+      display: block;
+      margin-bottom: 15px;
+      padding: 10px;
+      width: 100%;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #34495e;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="text" placeholder="Usuario" id="user">
+    <input type="password" placeholder="Senha" id="pass">
+    <button onclick="login()">Entrar</button>
+  </div>
+<script>
+  function login() {
+    const user = document.getElementById("user").value;
+    const pass = document.getElementById("pass").value;
+
+    const admin = JSON.parse(localStorage.getItem("admin"));
+
+    if (!admin) {
+      alert("Nenhum admin registrado. Crie um primeiro.");
+      window.location.href = "registro.html";
+      return;
+    }
+
+    if (user === admin.usuario && btoa(pass) === admin.senha) {
+      localStorage.setItem('usuarioLogado', 'sim');
+      window.location.href = "index.html";
+    } else {
+      alert("Usuário ou senha inválidos.");
+    }
+  }
+</script>
+</body>
+</html>

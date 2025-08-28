@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Denario Secury - Servicos de Informatica</title>
-  <link rel="icon" type="image/png" href="C:\System For Windows\web site\download.png">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Painel de Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <h2>Admin</h2>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="usuarios.html"><i class="fas fa-user"></i> Usuarios</a></li>
+                <li><a href="relatorios.html"><i class="fas fa-chart-line"></i> Relatorios</a></li>
+                <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configuracoes</a></li>
+                <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
 
-  <header>
-    <h1>Denario Secury</h1>
-    <p>Servicos de Informatica para Empresas e Particulares</p>
-  </header>
+            </ul>
+        </nav>
 
-  <nav>
-    <a href="index.html">Inicio</a>
-    <a href="servicos.html">Servicos</a>
-    <a href="canal.html">Canal</a>
-    <a href="contato.html">Contato</a>
-  </nav>
+        <!-- Conteudo principal -->
+        <main class="main-content">
+            <header>
+                <h1>Dashboard</h1>
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i> Admin
+                </div>
+            </header>
 
-  <section>
-    <h2>Bem-vindo ao nosso site!</h2>
-    <p>Explore nosso site para encontrar solucoes em informatica, redes, manutencao e formacao em TI que impulsionam o seu negocio ou a sua jornada de aprendizado. Seja voce uma empresa buscando otimizacao ou um cliente particular em busca de conhecimento, estamos aqui para transformar a tecnologia em resultados reais</p>
-    <div class="cta">
-      <a href="servicos.html">Veja nossos servicos</a>
+            <section class="cards">
+                <div class="card">
+                    <h3>Total de Usuarios</h3>
+                    <p>150</p>
+                </div>
+                <div class="card">
+                    <h3>Vendas Hoje</h3>
+                    <p>AKZ 12.000</p>
+                </div>
+                <div class="card">
+                    <h3>Relatorios</h3>
+                    <p>5 Novos</p>
+                </div>
+            </section>
+        </main>
     </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Denario Secury - Todos os direitos reservados.</p>
-  </footer>
-
 </body>
+<script>
+  function logout() {
+    localStorage.removeItem('usuarioLogado');
+    window.location.href = "login.html";
+  }
+</script>
 </html>

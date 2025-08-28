@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Usuários - Painel Admin</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <h2>Admin</h2>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="usuarios.html"><i class="fas fa-user"></i> Usuarios</a></li>
+        <li><a href="relatorios.html"><i class="fas fa-chart-line"></i> Relatorios</a></li>
+        <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configuracoes</a></li>
+        <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <header>
+        <h1>Gestao de Usuarios</h1>
+      </header>
+
+      <section class="cards">
+        <div class="card">
+          <h3>Usuario 1</h3>
+          <p>Email: denariosecury@gmail.com</p>
+        </div>
+        <div class="card">
+          <h3>Usuario 2</h3>
+          <p>Email: exemplo2@email.com</p>
+        </div>
+        <!-- Adicione mais usuarios conforme necessario -->
+      </section>
+    </main>
+  </div>
+</body>
+<script>
+  function logout() {
+    localStorage.removeItem('usuarioLogado');
+    window.location.href = "login.html";
+  }
+</script>
+</html>
